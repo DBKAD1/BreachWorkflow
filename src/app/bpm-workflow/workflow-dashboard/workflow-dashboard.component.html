@@ -1,6 +1,6 @@
 <div class="main-content">
   <div class="container-fluid">
-    <div class="col-md-12 col-lg-6 col-xxxl-6">
+    <div class="col-md-12 col-lg-10 col-xxxl-6">
       <div class="card">
         <div class="card-header card-header-danger">
 
@@ -10,20 +10,21 @@
         </div>
         <div class="card-body">
 
-          <ul>
-            <li *ngFor="let workflow of workflows">
-              <div class="row">
-                <span class="col-md-4">{{ workflow.id }}</span>
-                <span class="col-md-4 mr-3">{{ workflow.name }}</span>
-                <button class="col-md-2" mat-raised-button (click)="onEdit(workflow)">
-                  Edit
+          <mat-list class="col-lg-12" role="list">
+            <mat-list-item role="listitem" *ngFor="let workflow of workflows">
+              <div class="row col-lg-10">
+                <span class="col-lg-2 mt-3">{{ workflow.id }}</span>
+                <span class="col-lg-5 mr-3 mt-3">{{ workflow.name }}</span>
+
+                <button mat-raised-button class="btn btn-danger col-lg-4" (click)="onEdit(workflow)">
+                  <i class="fa fa-edit"> Edit</i>
                 </button>
               </div>
-            </li>
-          </ul>
+            </mat-list-item>
+            </mat-list>
           <div class="col-md-6">
-            <button mat-raised-button (click)="addWorkflow()">
-              Add New Work Flow
+            <button mat-raised-button class="btn btn-danger" (click)="addWorkflow()">
+              <i class="fa fa-plus"></i> Add Workflow
             </button>
           </div>
         </div>
