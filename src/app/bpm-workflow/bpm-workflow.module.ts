@@ -31,6 +31,11 @@ import { WorkflowDashboardComponent } from './workflow-dashboard/workflow-dashbo
     MatStepperModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  exports:
+  [
+    WorkflowDashboardComponent,
+    WorkflowViewerComponent
   ]
 })
 export class BpmWorkflowModule { }

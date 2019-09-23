@@ -10,7 +10,8 @@ import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
 
-import {BpmWorkflowModule} from './bpm-workflow/bpm-workflow.module'
+import {WorkflowDashboardComponent} from './bpm-workflow/workflow-dashboard/workflow-dashboard.component'
+import {WorkflowViewerComponent} from './bpm-workflow/workflow-viewer/workflow-viewer.component'
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
@@ -34,8 +35,7 @@ import { from } from 'rxjs';
     HttpModule,
     ComponentsModule,
     RouterModule,
-    AppRoutingModule,
-    BpmWorkflowModule,
+    AppRoutingModule,    
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     })
@@ -43,7 +43,8 @@ import { from } from 'rxjs';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-
+    WorkflowDashboardComponent,
+    WorkflowViewerComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
