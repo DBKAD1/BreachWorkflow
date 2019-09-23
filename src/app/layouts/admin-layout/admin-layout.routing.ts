@@ -58,8 +58,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
-    { path: 'bpm-worflow',           loadChildren: () => import('../../bpm-workflow/bpm-workflow.module')
-    .then(m => m.BpmWorkflowModule),},
+
+    { path: 'bpm-worflow',     component: WorkflowDashboardComponent},
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
 ];

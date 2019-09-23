@@ -6,36 +6,36 @@ import {
   PropertiesPanelModule,
   InjectionNames,
   OriginalPaletteProvider
-} from "../../extensions/bpm/bpmn-js/bpmn-js";
+} from '../../extensions/bpm/bpmn-js/bpmn-js';
 import {HttpClient} from '@angular/common/http';
 
-import { CustomPropsProvider } from "../../extensions/bpm/props-provider/CustomPropsProvider";
-import { CustomPaletteProvider } from "../../extensions/bpm/props-provider/CustomPaletteProvider";
-import { WorkflowModel } from "../../shared/models/workflow-model";
-import { BpmpnWorkflowService } from "../../shared/services/bpmpn-workflow.service";
-import { BpmnXmlService } from "../../shared/services/bpmn-xml.service";
+import { CustomPropsProvider } from '../../extensions/bpm/props-provider/CustomPropsProvider';
+import { CustomPaletteProvider } from '../../extensions/bpm/props-provider/CustomPaletteProvider';
+import { WorkflowModel } from '../../shared/models/workflow-model';
+import { BpmpnWorkflowService } from '../../shared/services/bpmpn-workflow.service';
+import { BpmnXmlService } from '../../shared/services/bpmn-xml.service';
 
 
 
 const customModdle = {
-  name: "customModdle",
-  uri: "http://example.com/custom-moddle",
-  prefix: "custom",
+  name: 'customModdle',
+  uri: 'http://example.com/custom-moddle',
+  prefix: 'custom',
   xml: {
-    tagAlias: "lowerCase"
+    tagAlias: 'lowerCase'
   },
   associations: [],
   types: [
     {
-      "name": "ExtUserTask",
-      "extends": [
-        "bpmn:UserTask"
+      'name': 'ExtUserTask',
+      'extends': [
+        'bpmn:UserTask'
       ],
-      "properties": [
+      'properties': [
         {
-          "name": "worklist",
-          "isAttr": true,
-          "type": "String"
+          'name': 'worklist',
+          'isAttr': true,
+          'type': 'String'
         }
       ]
     },
@@ -43,7 +43,7 @@ const customModdle = {
 };
 
 @Component({
-  selector: 'ngx-workflow-viewer',
+  selector: 'app-workflow-viewer',
   templateUrl: './workflow-viewer.component.html',
   styleUrls: ['./workflow-viewer.component.scss']
 })
@@ -51,16 +51,18 @@ export class WorkflowViewerComponent implements OnInit {
 
   title = 'Angular/BPMN';
   modeler;
-  workflow:WorkflowModel;
-  constructor(private http: HttpClient,private xmlService:BpmnXmlService,private workFlowService:BpmpnWorkflowService, private route: Router) {
+  workflow: WorkflowModel;
+  constructor(private http: HttpClient,
+    private xmlService: BpmnXmlService,
+    private workFlowService: BpmpnWorkflowService,
+    private route: Router) {
   }
 
   ngOnInit(): void {
-   
-    this.workflow=<WorkflowModel>history.state.data;
-    var bpmxnl=atob(this.workFlowService.loadedWorkFlow.bpmnXml64);
-    if(bpmxnl.length<1)
-    {
+
+    this.workflow = <WorkflowModel>history.state.data;
+    const bpmxnl = atob(this.workFlowService.loadedWorkFlow.bpmnXml64);
+    if (bpmxnl.length < 1) {
       this.load();
     }
     console.log(bpmxnl);
@@ -96,7 +98,7 @@ export class WorkflowViewerComponent implements OnInit {
   }
 
   load(): void {
- 
+
     const url = '../assets/bpmn/initial copy.bpmn';
     this.http.get(url, {
       headers: {observe: 'response'}, responseType: 'text'
@@ -110,25 +112,21 @@ export class WorkflowViewerComponent implements OnInit {
   }
 
   save(): void {
-    this.modeler.saveXML((err: any, xml: any) => 
-    {
+    this.modeler.saveXML((err: any, xml: any) => {
       console.log('Result of saving XML: ', err, xml);
       this.xmlService.getActivitiXml(xml);
-      this.workFlowService.loadedWorkFlow.bpmnXml64=btoa(xml);
-      if( this.workFlowService.loadedWorkFlow.id)
-      {
+      this.workFlowService.loadedWorkFlow.bpmnXml64 = btoa(xml);
+      if ( this.workFlowService.loadedWorkFlow.id) {
         this.workFlowService.saveWorkflow().subscribe();
         this.route.navigate(['/pages/workflow-viewer']);
 
-      }
-      else
-      {
+      } else {
         this.workFlowService.addWorkflow().subscribe();
         this.route.navigate(['/pages/workflow-viewer']);
       }
     }
     );
-   
+
   }
 
 }

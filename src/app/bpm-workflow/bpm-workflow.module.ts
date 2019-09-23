@@ -11,10 +11,10 @@ import {
   InjectionNames,
   OriginalPaletteProvider
 
-} from "../extensions/bpm/bpmn-js/bpmn-js";
+} from '../extensions/bpm/bpmn-js/bpmn-js';
 
-import { CustomPropsProvider } from "../extensions/bpm/props-provider/CustomPropsProvider";
-import { CustomPaletteProvider } from "../extensions/bpm/props-provider/CustomPaletteProvider";
+import { CustomPropsProvider } from '../extensions/bpm/props-provider/CustomPropsProvider';
+import { CustomPaletteProvider } from '../extensions/bpm/props-provider/CustomPaletteProvider';
 import { BpmWorkflowRoutingModule } from './bpm-workflow-routing.module';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatButtonModule} from '@angular/material/button';

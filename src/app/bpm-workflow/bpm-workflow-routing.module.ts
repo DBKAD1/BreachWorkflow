@@ -8,13 +8,11 @@ import { WorkflowDashboardComponent } from './workflow-dashboard/workflow-dashbo
 const routes: Routes = [
   {
     path: '',
-    component: WorkflowDashboardComponent,
-  
+    component: WorkflowDashboardComponent
   },
   {
-    path: 'veiwer',
-    component: WorkflowViewerComponent,
-  
+    path: 'viewer',
+    component: WorkflowViewerComponent
   }
 ];
 

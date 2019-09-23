@@ -1,29 +1,33 @@
-<div class="col-md-12 col-lg-6 col-xxxl-6">
-  <div class="card">
-    <div class="card-header card-header-danger">
-    
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="col-md-12 col-lg-6 col-xxxl-6">
+      <div class="card">
+        <div class="card-header card-header-danger">
+
           Present workflows
-        
 
-    </div>
-    <div class="card-body">
 
-      <ul>
-        <li *ngFor="let workflow of workflows">
-          <div class="row">
-              <span class="col-md-4">{{ workflow.id }}</span>
-              <span class="col-md-4 mr-3">{{ workflow.name }}</span>
-              <button class="col-md-2" nbButton outline (click)="onEdit(workflow)">
-                Edit
-              </button>
-          </div>         
-        </li>
-      </ul>
-      <div class="col-md-6">
-          <button nbButton outline (click)="addWorkflow()">
-            Add New Work Flow
-          </button>
         </div>
+        <div class="card-body">
+
+          <ul>
+            <li *ngFor="let workflow of workflows">
+              <div class="row">
+                <span class="col-md-4">{{ workflow.id }}</span>
+                <span class="col-md-4 mr-3">{{ workflow.name }}</span>
+                <button class="col-md-2" mat-raised-button (click)="onEdit(workflow)">
+                  Edit
+                </button>
+              </div>
+            </li>
+          </ul>
+          <div class="col-md-6">
+            <button mat-raised-button (click)="addWorkflow()">
+              Add New Work Flow
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

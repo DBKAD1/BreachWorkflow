@@ -11,6 +11,7 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import {BpmWorkflowModule} from '../../bpm-workflow/bpm-workflow.module'
 
 import {
   MatButtonModule,
@@ -19,6 +20,7 @@ import {
   MatFormFieldModule,
   MatTooltipModule,
   MatSelectModule
+
 } from '@angular/material';
 @NgModule({
   imports: [
@@ -32,6 +34,7 @@ import {
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    BpmWorkflowModule
   ],
   declarations: [
     DashboardComponent,
