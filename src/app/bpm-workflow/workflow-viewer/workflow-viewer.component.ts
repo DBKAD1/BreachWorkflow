@@ -118,11 +118,11 @@ export class WorkflowViewerComponent implements OnInit {
       this.workFlowService.loadedWorkFlow.bpmnXml64 = btoa(xml);
       if ( this.workFlowService.loadedWorkFlow.id) {
         this.workFlowService.saveWorkflow().subscribe();
-        this.route.navigate(['/pages/workflow-viewer']);
+       // this.route.navigate(['/bpm-workflow']);
 
       } else {
         this.workFlowService.addWorkflow().subscribe();
-        this.route.navigate(['/pages/workflow-viewer']);
+        // this.route.navigate(['/bpm-workflow']);
       }
     }
     );
