@@ -19,6 +19,7 @@ import { BpmWorkflowRoutingModule } from './bpm-workflow-routing.module';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatListModule} from '@angular/material/list';
 
 import { WorkflowViewerComponent } from './workflow-viewer/workflow-viewer.component';
 import { WorkflowDashboardComponent } from './workflow-dashboard/workflow-dashboard.component';
@@ -30,6 +31,7 @@ import { WorkflowDashboardComponent } from './workflow-dashboard/workflow-dashbo
     CommonModule,
     MatStepperModule,
     FormsModule,
+    MatListModule,
     ReactiveFormsModule
   ],
   exports:
