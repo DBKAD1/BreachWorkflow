@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { BpmpnWorkflowService } from '../../shared/services/bpmpn-workflow.service';
 import { WorkflowModel } from '../../shared/models/workflow-model';
 
+import { ActivitiService } from '../../shared/services/activiti.service';
+import { Activiti } from '../../shared/models/activiti.model';
+
 @Component({
   selector: 'app-workflow-dashboard',
   templateUrl: './workflow-dashboard.component.html',
@@ -11,7 +14,9 @@ import { WorkflowModel } from '../../shared/models/workflow-model';
 })
 export class WorkflowDashboardComponent implements OnInit {
   workflows: WorkflowModel[];
-  constructor(private workFlowService: BpmpnWorkflowService, private route: Router) { }
+  constructor(private workFlowService: BpmpnWorkflowService,
+    private activitiService: ActivitiService,
+     private route: Router) { }
 
   ngOnInit() {
     const a = this.workFlowService.getWorkflows
@@ -22,6 +27,17 @@ export class WorkflowDashboardComponent implements OnInit {
       },
       this.handleError
     );
+
+    const b = this.activitiService.getWorkflows
+    ().subscribe(
+      (x: Activiti[]) => {
+        console.log('Fetched Workflows, now importing: ', x);
+       const processes = x;
+       console.log(processes);
+      },
+      this.handleError
+    );
+
   }
   handleError(err: any) {
     if (err) {
