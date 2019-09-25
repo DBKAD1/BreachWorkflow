@@ -113,6 +113,7 @@ export class WorkflowViewerComponent implements OnInit {
 
   save(): void {
     this.modeler.saveXML((err: any, xml: any) => {
+      alert(xml);
       console.log('Result of saving XML: ', err, xml);
       this.xmlService.getActivitiXml(xml);
       this.workFlowService.loadedWorkFlow.bpmnXml64 = btoa(xml);
