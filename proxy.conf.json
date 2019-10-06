@@ -1,10 +1,6 @@
 {
-    "/posts": {
-      "target": "http://51.140.158.69:8080",
-      "secure": true,
-      "pathRewrite": {
-      "^/posts": ""
-    },
-      "changeOrigin": true
+    "/repository": {
+      "target": "http://51.140.158.69:8080/repository",
+      "secure": false
     }
   }
